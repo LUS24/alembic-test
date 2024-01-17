@@ -36,12 +36,13 @@ pip install -r requirements.txt
 alembic init alembic
 ```
 
-2. In the new alembic directory, edit the `alembic.ini` file where it says `sqlalchemy.url`. Add the URL to the database, if using SQLite add the file name, for example:
+2. In the project directory, edit the `alembic.ini` file where it says `sqlalchemy.url`. Add the URL to the database, if you are working in a small app, add this to use SQLite:
+
 ```ini
 sqlite:///dev.sqlite3
 ```
 
-If the database URL is set from an environment variable, update the `env.py` file, see the docs for more info. ([docs](https://alembic.sqlalchemy.org/en/latest/tutorial.html#editing-the-ini-file))
+We can also set the database URL from an environment variable by updating the `env.py` file, see the docs for more info. ([docs](https://alembic.sqlalchemy.org/en/latest/tutorial.html#editing-the-ini-file))
 
 3. Configure automatic migrations ([docs](https://alembic.sqlalchemy.org/en/latest/autogenerate.html#auto-generating-migrations)). Edit the `env.py` file where it says `target_metadata`. It should be a reference SQLAchemy `Base.metadata` object, for example:
 
@@ -53,19 +54,19 @@ target_metadata = metadata
 ...
 ```
 
-5. Create a migration script ([docs](https://alembic.sqlalchemy.org/en/latest/tutorial.html#create-a-migration-script))
+4. Create a migration script ([docs](https://alembic.sqlalchemy.org/en/latest/tutorial.html#create-a-migration-script))
 ```bash
 alembic revision --autogenerate
 ```
 
-6. Run the migration 
+5. Run the migration 
 ```bash
 alembic upgrade head
 ```
 
 ## Interesting features
 
-- Change the default forlder name from alembic to other name. For this check the configuration docs ([LINK](https://alembic.sqlalchemy.org/en/latest/tutorial.html#editing-the-ini-file)) where it says `script_location`.
+- Change the default folder name from alembic to other name. For this check the configuration docs ([LINK](https://alembic.sqlalchemy.org/en/latest/tutorial.html#editing-the-ini-file)) where it says `script_location`.
 
 - Adding a numeric prefix to the migration versions to keep the files in order. For this check the configuration docs ([LINK](https://alembic.sqlalchemy.org/en/latest/tutorial.html#editing-the-ini-file)) where it says `file_template`.
 
