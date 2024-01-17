@@ -1,10 +1,12 @@
 # Using Alembic with FastAPI
 
+
 ## Docs
 
 [Alembic docs](https://alembic.sqlalchemy.org/en/latest/index.html)
 
-## What is it
+
+## What is it?
 
 From the docs:
 
@@ -29,6 +31,8 @@ alembic
 ```bash
 pip install -r requirements.txt
 ```
+
+
 ## Usage
 
 1. In the project directory, create a migration environment ([docs](https://alembic.sqlalchemy.org/en/latest/tutorial.html#creating-an-environment)):
@@ -64,11 +68,13 @@ alembic revision --autogenerate
 alembic upgrade head
 ```
 
+
 ## Interesting features
 
 - Change the default folder name from alembic to other name. For this check the configuration docs ([LINK](https://alembic.sqlalchemy.org/en/latest/tutorial.html#editing-the-ini-file)) where it says `script_location`.
 
 - Adding a numeric prefix to the migration versions to keep the files in order. For this check the configuration docs ([LINK](https://alembic.sqlalchemy.org/en/latest/tutorial.html#editing-the-ini-file)) where it says `file_template`.
+
 
 ## Debugging
 
